@@ -1,32 +1,25 @@
-import { hot } from 'react-hot-loader/root'
-import * as React from 'react'
-import styled, { createGlobalStyle } from "styled-components";
+import { hot } from 'react-hot-loader/root';
+import * as React from 'react';
+import SignIn from './containers/SignIn';
+import Global from './components/Global';
+import Background from './components/Background';
+import { Grid, GridItem } from './components/Grid';
+import { CenteredFlexFill } from './components/Container';
 
-const Global = createGlobalStyle`
-  body {
-    margin: 0;
-  }
-`;
+const App = () => (
+  <>
+    <Global />
+    <CenteredFlexFill>
+      <Grid>
+        <GridItem>
+          <SignIn />
+        </GridItem>
+        <GridItem>
+          <Background />
+        </GridItem>
+      </Grid>
+    </CenteredFlexFill>
+  </>
+);
 
-const Container = styled.div`
-  display: flex;
-  height: 100vh;
-  width: 100vw;
-  background-color: rebeccapurple;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Header = styled.h1`
-  color: #FFFFFF;
-  font-size: 36px;
-`;
-
-const App = () => <>
-  <Global />
-  <Container>
-    <Header>Hello, World!</Header>
-  </Container>
-</>
-
-export default hot(App)
+export default hot(App);
